@@ -1,0 +1,5 @@
+# Node
+node_modules
+
+# dev keys
+backend/conf/keys_dev.js
