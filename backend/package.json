@@ -16,7 +16,8 @@
     "koa": "^2.7.0",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
-    "mongodb": "^3.1.13"
+    "mongodb": "^3.1.13",
+    "node-fetch": "^2.3.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
