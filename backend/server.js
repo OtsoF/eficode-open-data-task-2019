@@ -31,3 +31,12 @@ app.listen(port, () => console.log(`Server Started on port: ${port}`));
 // start fetcher loop
 
 fetcher.sensorDataRequestLoop();
+
+// hacky way to keep heroku alive
+
+if (process.env.NODE_ENV === 'prod') {
+    var http = require("http");
+setInterval(function() {
+    http.get("http://radiant-lowlands-34769.herokuapp.com/sensors");
+}, 300000);
+} 
