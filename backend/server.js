@@ -36,7 +36,7 @@ fetcher.sensorDataRequestLoop();
 
 if (process.env.NODE_ENV === 'prod') {
     var http = require("http");
-setInterval(function() {
-    http.get("http://radiant-lowlands-34769.herokuapp.com/sensors");
-}, 300000);
+    setInterval(function() {
+        http.get("http://radiant-lowlands-34769.herokuapp.com/sensors");
+    }, 300000);
 } 
