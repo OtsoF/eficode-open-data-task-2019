@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Chart from './Chart';
 
-const apiURL = process.env.APIURL || 'http://localhost:4000';
+const apiURL = process.env.APIURL || 'https://radiant-lowlands-34769.herokuapp.com';
 
 async function getSensorData() {
     try {
@@ -13,23 +14,6 @@ async function getSensorData() {
     }
     return { error: 'Failed to fetch from backend' };
 }
-
-const SensorDataRows = (props) => {
-    const Rows = props.data.map(d => (
-        <div>
-            <li>Date: {d.date}</li>
-            <li>Sensor 1: {d.sensor1}</li>
-            <li>Sensor 2: {d.sensor2}</li>
-            <li>Sensor 3: {d.sensor3}</li>
-            <li>Sensor 4: {d.sensor4}</li>
-        </div>
-    ));
-    return (
-        <div>
-            <ul>{Rows}</ul>
-        </div>
-    );
-};
 
 class App extends React.Component {
     state = { sensorData: [] }
@@ -43,7 +27,14 @@ class App extends React.Component {
         return (
             <div className='App'>
                 <h1>Eficode Open Data Task 2019</h1>
-                <SensorDataRows data={this.state.sensorData} />
+                <h2>Sensor 1</h2>
+                <Chart data={this.state.sensorData} dataKey='sensor1' />
+                <h2>Sensor 2</h2>
+                <Chart data={this.state.sensorData} dataKey='sensor2' />
+                <h2>Sensor 3</h2>
+                <Chart data={this.state.sensorData} dataKey='sensor3' />
+                <h2>Sensor 4</h2>
+                <Chart data={this.state.sensorData} dataKey='sensor4' />
             </div>
         );
     }
